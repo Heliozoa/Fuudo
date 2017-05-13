@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
-
-var foodDAO = require('../models/mockFoodDAO');
+var Food = require('../models/food');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Fuudo',
-                        food: foodDAO.getAny()});
+    Food.findOne((err, food) => {
+        res.render('index', { title: 'Fuudo',
+                              food: food,
+                              error: err});
+    });
 });
 
 module.exports = router;
