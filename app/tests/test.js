@@ -14,9 +14,9 @@ var Food = require('../models/food');
 test('Adding a food with the necessary fields works.', t => {
   t.plan(1);
   var f = new Food({
-            name: 'mem',
-            restaurant: 'pg',
-            image: 'pep'});
+            name: 'name',
+            restaurant: 'restaurant',
+            image: 'image'});
   var promise = f.save();
   
   return promise.then(
@@ -29,7 +29,7 @@ test('Adding a food with the name field missing doesn\'t work.', t => {
   t.plan(1);
   var f = new Food({
             image: 'mem',
-            restaurant: 'pg'});
+            restaurant: 'restaurant'});
   var promise = f.save();
   
   return promise.then(
@@ -41,8 +41,8 @@ test('Adding a food with the name field missing doesn\'t work.', t => {
 test('Adding a food with the restaurant field missing doesn\'t work.', t => {
   t.plan(1);
   var f = new Food({
-            name: 'mem',
-            image: 'pg'});
+            name: 'name',
+            image: 'image'});
   var promise = f.save();
   
   return promise.then(
@@ -54,8 +54,8 @@ test('Adding a food with the restaurant field missing doesn\'t work.', t => {
 test('Adding a food with the image field missing doesn\'t work.', t => {
   t.plan(1);
   var f = new Food({
-            name: 'mem',
-            restaurant: 'pg'});
+            name: 'name',
+            restaurant: 'restaurant'});
   var promise = f.save();
   
   return promise.then(
