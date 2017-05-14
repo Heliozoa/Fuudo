@@ -16,7 +16,7 @@ bb.extend(app, {
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/test');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
