@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "ava"
   },
   "dependencies": {
     "assert": "^1.4.1",
@@ -18,5 +19,9 @@
     "mv": "^2.1.1",
     "pug": "^2.0.0-rc.1",
     "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "supertest": "^3.0.0"
   }
 }
