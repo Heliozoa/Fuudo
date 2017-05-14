@@ -1,4 +1,4 @@
-# Fuudo
+# Fuudo [![Build Status](https://travis-ci.org/Heliozoa/Fuudo.svg?branch=master)](https://travis-ci.org/Heliozoa/Fuudo)
 Node.js ja React-ohjelmointiprojekti (alkukesä 2017)
 
 #### Visio:
