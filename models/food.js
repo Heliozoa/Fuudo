@@ -19,6 +19,13 @@ var foodSchema = mongoose.Schema({
     }
 });
 
+foodSchema.statics.random = function(cb) {
+  this.count().exec((err, count) => {
+    var rand = Math.floor(Math.random() * count);
+    return this.findOne().skip(rand).exec(err,cb);
+  });
+};
+
 var Food = mongoose.model('Food', foodSchema);
 
 module.exports = Food;
