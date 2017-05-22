@@ -10,12 +10,17 @@ mockgoose.prepareStorage().then(function() {
 });
 
 var Food = require('../models/food');
+var Restaurant = require('../models/restaurant');
 
 test('Adding a food with the necessary fields works.', t => {
   t.plan(1);
+  var r = new Restaurant({
+            name: 'name',
+            image: 'image'});
+  r.save();
   var f = new Food({
             name: 'name',
-            restaurant: 'restaurant',
+            restaurant: r._id,
             image: 'image'});
   var promise = f.save();
   
