@@ -17,7 +17,7 @@ class RestaurantForm extends React.Component {
         <RequiredInput label="Name" type="text" name="name" />
         <RequiredInput label="Image" type="file" name="image" />
         <br />
-        <RequiredInput type="submit" value="Submit" />
+        <input type="submit" value="Submit" />
       </form>        
     );
   }

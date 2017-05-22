@@ -4,11 +4,10 @@ var Food = require('../models/food');
 var Restaurant = require('../models/restaurant');
 
 router.get('/', function(req, res, next) {
-  Food.random((err,food) => {
-    Restaurant.findById(food.restaurant, (err,restaurant) => {
-      res.render('index', { food: food ,
-                            restaurant: restaurant });
-    });
+  Food.getOne((err,food) => {
+    res.render('index', { food: food,
+                          restaurant: food.restaurant,
+                          reviews: food.reviews });
   });
 });
 

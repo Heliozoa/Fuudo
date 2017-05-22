@@ -9,21 +9,30 @@ var foodSchema = mongoose.Schema({
       minlength: 2
     },
     image: {
-      type: String,
-      required: true,
-      minlength: 2
+      type: Buffer,
+      contentType: String,
+      required: true
     },
     restaurant: {
       type: Schema.Types.ObjectId,
       ref: 'Restaurant',
       required: true
     },
+    reviews: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Review'
+    }]
 });
 
-foodSchema.statics.random = function(cb) {
+foodSchema.statics.getOne = function(cb) {
   this.count().exec((err, count) => {
     var rand = Math.floor(Math.random() * count);
-    return this.findOne().skip(rand).exec(err,cb);
+    return this
+      .findOne()
+      .skip(rand)
+      .populate('restaurant')
+      .populate('reviews')
+      .exec(err,cb);
   });
 };
 

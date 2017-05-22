@@ -9,9 +9,9 @@ var restaurantSchema = mongoose.Schema({
       minlength: 2
     },
     image: {
-      type: String,
-      required: true,
-      minlength: 2
+      type: Buffer,
+      contentType: String,
+      required: true
     },
     foods: [{
       type: Schema.Types.ObjectId,
