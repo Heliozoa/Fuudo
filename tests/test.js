@@ -32,9 +32,13 @@ test('Adding a food with the necessary fields works.', t => {
 
 test('Adding a food with the name field missing doesn\'t work.', t => {
   t.plan(1);
+  var r = new Restaurant({
+            name: 'name',
+            image: 'image'});
+  r.save();
   var f = new Food({
-            image: 'mem',
-            restaurant: 'restaurant'});
+            restaurant: r._id,
+            image: 'image'});
   var promise = f.save();
   
   return promise.then(
@@ -58,9 +62,13 @@ test('Adding a food with the restaurant field missing doesn\'t work.', t => {
 
 test('Adding a food with the image field missing doesn\'t work.', t => {
   t.plan(1);
+  var r = new Restaurant({
+            name: 'name',
+            image: 'image'});
+  r.save();
   var f = new Food({
             name: 'name',
-            restaurant: 'restaurant'});
+            restaurant: r._id,
   var promise = f.save();
   
   return promise.then(

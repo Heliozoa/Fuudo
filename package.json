@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "assert": "^1.4.1",
+    "babel-cli": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
     "bluebird": "^3.5.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
@@ -27,9 +30,6 @@
   },
   "devDependencies": {
     "ava": "^0.19.1",
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2017": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "mockgoose": "^7.3.1",
     "supertest": "^3.0.0"
   }
