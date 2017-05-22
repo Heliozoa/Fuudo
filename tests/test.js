@@ -68,7 +68,7 @@ test('Adding a food with the image field missing doesn\'t work.', t => {
   r.save();
   var f = new Food({
             name: 'name',
-            restaurant: r._id,
+            restaurant: r._id });
   var promise = f.save();
   
   return promise.then(
