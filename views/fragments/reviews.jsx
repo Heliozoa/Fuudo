@@ -24,9 +24,9 @@ function Avatar(props){
 
 function list(reviews){
   return reviews.map((review) =>
-    <div style={{'display': 'table', 'width': app_w}}>
+    <div style={{'display': 'table', 'width': app_w, 'padding-bottom': 16}}>
       <Avatar style={{'display': 'table-cell'}} review={review} />
-      <div style={{'display': 'table-cell', 'text-align': 'Left', 'border-top': '2px solid #404040'}}>{review.message}</div>
+      <div style={{'display': 'table-cell', 'text-align': 'Left'}}>{review.message}</div>
     </div>
   );
 }
