@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var Food = require('../models/food');
+var Restaurant = require('../models/restaurant');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  Food.random((err, food) => {
-      res.render('index', { title: 'Fuudo',
-                            food: food,
-                            error: err});
+  Food.random((err,food) => {
+    Restaurant.findById(food.restaurant, (err,restaurant) => {
+      res.render('index', { food: food ,
+                            restaurant: restaurant });
+    });
   });
 });
 

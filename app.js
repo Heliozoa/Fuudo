@@ -4,10 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bb = require('express-busboy');
-var assert = require('assert');
-
-var index = require('./routes/index');
-var add = require('./routes/add');
 
 var app = express();
 bb.extend(app, {
@@ -20,13 +16,16 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/test');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var index = require('./routes/index');
+var add = require('./routes/add');
 
 app.use('/', index);
 app.use('/add', add);
@@ -47,7 +46,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { error: err });
 });
 
 module.exports = app;
