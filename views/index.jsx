@@ -1,22 +1,23 @@
 var React = require('react');
 
 import styles from './fragments/styles.js';
-import constants from './fragments/constants.js';
 
 var Reviews = require('./fragments/reviews');
 var Restaurant = require('./fragments/restaurant');
 var Food = require('./fragments/food');
+var Selector = require('./fragments/selector');
+var Layout = require('./fragments/layout');
 
-const app_w = constants.app_w;
  
 class View extends React.Component {
   render() {
     return (
-      <div style={{'width': app_w}}>
+      <Layout>
         <Restaurant restaurant={this.props.restaurant} /> <br />
-        <Food food={this.props.food} /> <br />
+        <Food food={this.props.food} />
+        <Selector />
         <Reviews reviews={this.props.reviews} />
-      </div>
+      </Layout>
     );
   }
 };

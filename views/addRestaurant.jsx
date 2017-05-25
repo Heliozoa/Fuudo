@@ -1,5 +1,7 @@
 var React = require('react');
 
+var Layout = require('./fragments/layout');
+
 function RequiredInput(props) {
   return (
     <label>
@@ -13,12 +15,14 @@ function RequiredInput(props) {
 class RestaurantForm extends React.Component {
   render() {
     return (
-      <form method="POST" action="/add/restaurant" encType="multipart/form-data">
-        <RequiredInput label="Name" type="text" name="name" />
-        <RequiredInput label="Image" type="file" name="image" />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>        
+      <Layout>
+        <form method="POST" action="/add/restaurant" encType="multipart/form-data">
+          <RequiredInput label="Name" type="text" name="name" />
+          <RequiredInput label="Image" type="file" name="image" />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>      
+      </Layout>  
     );
   }
 };

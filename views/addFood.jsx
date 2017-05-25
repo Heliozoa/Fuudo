@@ -1,4 +1,6 @@
 var React = require('react');
+
+var Layout = require('./fragments/layout');
  
 function RequiredInput(props) {
   return (
@@ -31,13 +33,15 @@ function list(restaurants) {
 class FoodForm extends React.Component {
   render() {
     return (
-      <form method="POST" action="/add/food" encType="multipart/form-data">
-        <RestaurantDropdown restaurants={this.props.restaurants} />
-        <RequiredInput label="Name" type="text" name="name" />
-        <RequiredInput label="Image" type="file" name="image" />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>        
+      <Layout>
+        <form method="POST" action="/add/food" encType="multipart/form-data">
+          <RestaurantDropdown restaurants={this.props.restaurants} />
+          <RequiredInput label="Name" type="text" name="name" />
+          <RequiredInput label="Image" type="file" name="image" />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>      
+      </Layout>  
     );
   }
 };

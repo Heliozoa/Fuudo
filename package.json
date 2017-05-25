@@ -24,9 +24,7 @@
     "mv": "^2.1.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-scripts": "0.9.5",
-    "serve-favicon": "~2.4.2",
-    "webpack": "^2.5.1"
+    "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "ava": "^0.19.1",
