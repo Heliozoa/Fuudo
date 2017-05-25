@@ -37,7 +37,8 @@ function score(reviews){
   for(var i = 0; i < reviews.length; i++){
     sum += reviews[i].score;
   }
-  return sum / reviews.length;
+  var score = (sum / reviews.length) * 10;
+  return (Math.round(score))/10;
 }
 
 module.exports = Reviews;
