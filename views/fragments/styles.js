@@ -4,7 +4,7 @@ const center_contents = {
 
 const restrict_size = {
   'max-width': '100%',
-  'max-height': '100%',
+  'height': '100%',
   'vertical-align': 'middle',
 };
 
