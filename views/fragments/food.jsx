@@ -10,7 +10,7 @@ var merge = Object.assign;
 
 function FoodPicture(props) {
   return(
-    <div style={merge(center_contents, {'height': 256})}>
+    <div style={merge(center_contents, {backgroundColor: '#a22d2d', height: 256})}>
       <img style={restrict_size} src={"data:image/png;base64,"+props.food.image} alt={props.food.name} />
     </div>
   );
