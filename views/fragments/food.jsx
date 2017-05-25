@@ -4,21 +4,21 @@ import styles from './styles.js';
 
 var Reviews = require('./reviews');
 
-const center_contents = styles.center_contents;
-const restrict_size = styles.restrict_size;
+const centerContents = styles.centerContents;
+const restrictSize = styles.restrictSize;
 var merge = Object.assign;
 
 function FoodPicture(props) {
   return(
-    <div style={merge({}, center_contents, {backgroundColor: '#a22d2d', height: 256})}>
-      <img style={restrict_size} src={"data:image/png;base64,"+props.food.image} alt={props.food.name} />
+    <div style={merge({}, centerContents, {backgroundColor: '#a22d2d', height: 256})}>
+      <img style={restrictSize} src={"data:image/png;base64,"+props.food.image} alt={props.food.name} />
     </div>
   );
 }
 
 function Food(props) {
   return (
-    <div style={center_contents}>
+    <div style={centerContents}>
       <FoodPicture food={props.food} />
       {props.food.name +' '+ Reviews.score(props.food.reviews)}
     </div>

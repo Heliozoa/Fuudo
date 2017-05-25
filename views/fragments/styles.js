@@ -3,14 +3,14 @@ const center_contents = {
 };
 
 const restrict_size = {
-  'max-width': '100%',
-  'height': '100%',
-  'vertical-align': 'middle',
+  maxWidth: '100%',
+  height: '100%',
+  verticalAlign: 'middle',
 };
 
 const styles = {
-  'center_contents': center_contents,
-  'restrict_size': restrict_size,
+  centerContents: center_contents,
+  restrictSize: restrict_size,
 }
 
 module.exports = styles;

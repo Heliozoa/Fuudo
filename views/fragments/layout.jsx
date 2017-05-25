@@ -3,11 +3,11 @@ var React = require('react');
 var Links = require('./links')
 
 import constants from './constants.js';
-const app_w = constants.app_w;
+const appW = constants.appW;
 
 function Layout(props) {
   return (
-    <div style={{'width': app_w}}>
+    <div style={{width: appW}}>
       <Links />
       {props.children}
     </div>

@@ -1,6 +1,5 @@
 const constants = {
-    app_w: 512,
-    logo_h: 128,
+    appW: 512,
 }
 
 module.exports = constants;
