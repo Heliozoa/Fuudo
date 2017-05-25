@@ -8,7 +8,7 @@ var merge = Object.assign;
 
 function Restaurant(props) {
   return (
-    <div style={merge({'height': 128,}, center_contents)}>
+    <div style={merge({}, {'height': 128,}, center_contents)}>
      <img style={restrict_size} src={"data:image/png;base64,"+props.restaurant.image} alt={props.restaurant.name} />
     </div>
   );
