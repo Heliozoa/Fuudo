@@ -1,10 +1,5 @@
-var React = require('react');
-
-import constants from './constants.js';
-import styles from './styles.js';
-
-const app_w = constants.app_w;
-const restrictSize = styles.restrictSize;
+import React from 'react';
+import Review from './review';
 
 function Reviews(props) {
   return (
@@ -14,31 +9,19 @@ function Reviews(props) {
   );
 }
 
-function Avatar(props){
-  return (
-    <div style={Object.assign({}, props.style, {height: '80', width: '80', textAlign: 'center'})}>
-      <img style={restrictSize} src={"data:image/png;base64,"+props.review.image} alt={props.review.name} />
-    </div>
-  );
-}
-
-function list(reviews){
+function list(reviews) {
   return reviews.map((review) =>
-    <div style={{display: 'table', width: app_w, paddingBottom: 16}}>
-      <Avatar style={{display: 'table-cell'}} review={review} />
-      <div style={{display: 'table-cell', textAlign: 'Left', paddingLeft: '10px'}}>{review.message}</div>
-    </div>
+    <Review key={review._id} review={review} />
   );
 }
 
-
-function score(reviews){
-  var sum = 0;
-  for(var i = 0; i < reviews.length; i++){
+function score(reviews) {
+  let sum = 0;
+  for (let i = 0; i < reviews.length; i += 1) {
     sum += reviews[i].score;
   }
-  var score = (sum / reviews.length) * 10;
-  return (Math.round(score))/10;
+  const points = (sum / reviews.length) * 10;
+  return (Math.round(points)) / 10;
 }
 
 module.exports = Reviews;

@@ -1,16 +1,14 @@
-const center_contents = {
-  'text-align': 'center',
+const centerContents = {
+  textAlign: 'center',
 };
 
-const restrict_size = {
+const restrictSize = {
   maxWidth: '100%',
   height: '100%',
   verticalAlign: 'middle',
 };
 
-const styles = {
-  centerContents: center_contents,
-  restrictSize: restrict_size,
-}
-
-module.exports = styles;
+module.exports = {
+  centerContents,
+  restrictSize,
+};

@@ -1,13 +1,14 @@
-var express = require('express');
-var router = express.Router();
-var Food = require('../models/food');
-var Restaurant = require('../models/restaurant');
+const express = require('express');
+const Food = require('../models/food');
 
-router.get('/', function(req, res, next) {
-  Food.getOne((err,food) => {
-    res.render('index', { food: food,
-                          restaurant: food.restaurant,
-                          reviews: food.reviews });
+const router = express.Router();
+
+router.get('/', function (req, res, next) {
+  Food.getOne((err, food) => {
+    res.render('index', {
+      food,
+      restaurant: food.restaurant,
+      reviews: food.reviews });
   });
 });
 

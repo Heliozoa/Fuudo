@@ -9,8 +9,8 @@
   "dependencies": {
     "assert": "^1.4.1",
     "babel-cli": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "bluebird": "^3.5.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
@@ -22,12 +22,21 @@
     "mongoose": "^4.9.8",
     "morgan": "~1.8.1",
     "mv": "^2.1.1",
-    "react": "15.5.4",
-    "react-dom": "15.5.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "reactstrap": "^4.6.2",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "ava": "^0.19.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
     "mockgoose": "^7.3.1",
     "supertest": "^3.0.0"
   }

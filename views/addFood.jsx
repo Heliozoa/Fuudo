@@ -1,19 +1,17 @@
-var React = require('react');
+const React = require('react');
 
-var Layout = require('./fragments/layout');
- 
-function RequiredInput(props) {
-  return (
-    <label>
-      {props.label}: <br />
-      <input type={props.type} name={props.name} required /> <br />
-      <br />
-    </label>
+const Layout = require('./fragments/layout');
+
+const RequiredInput = require('./fragments/forms');
+
+function list(restaurants) {
+  return restaurants.map((restaurant) =>
+    <option key={restaurant._id} value={restaurant._id}>{restaurant.name}</option>
   );
 }
 
 function RestaurantDropdown(props) {
-  return(
+  return (
     <label>
       Restaurant: <br />
       <select name="restaurant">
@@ -24,26 +22,18 @@ function RestaurantDropdown(props) {
   );
 }
 
-function list(restaurants) {
-  return restaurants.map((restaurant) =>
-    <option key={restaurant._id} value={restaurant._id}>{restaurant.name}</option>
+function FoodForm(props) {
+  return (
+    <Layout>
+      <form method="POST" action="/add/food" encType="multipart/form-data">
+        <RestaurantDropdown restaurants={props.restaurants} />
+        <RequiredInput label="Name" type="text" name="name" />
+        <RequiredInput label="Image" type="file" name="image" />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </Layout>
   );
 }
 
-class FoodForm extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <form method="POST" action="/add/food" encType="multipart/form-data">
-          <RestaurantDropdown restaurants={this.props.restaurants} />
-          <RequiredInput label="Name" type="text" name="name" />
-          <RequiredInput label="Image" type="file" name="image" />
-          <br />
-          <input type="submit" value="Submit" />
-        </form>      
-      </Layout>  
-    );
-  }
-};
- 
 module.exports = FoodForm;

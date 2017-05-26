@@ -1,19 +1,16 @@
-var React = require('react');
+const React = require('react');
 
-var Layout = require('./fragments/layout');
- 
-function RequiredInput(props) {
-  return (
-    <label>
-      {props.label}: <br />
-      <input type={props.type} name={props.name} required /> <br />
-      <br />
-    </label>
+const Layout = require('./fragments/layout');
+const RequiredInput = require('./fragments/forms');
+
+function list(restaurants) {
+  return restaurants.map((restaurant) =>
+    <option key={restaurant._id} value={restaurant._id}>{restaurant.name}</option>
   );
 }
 
 function FoodDropdown(props) {
-  return(
+  return (
     <label>
       Food: <br />
       <select name="food">
@@ -24,32 +21,24 @@ function FoodDropdown(props) {
   );
 }
 
-function list(foods) {
-  return foods.map((food) =>
-    <option key={food._id} value={food._id}>{food.name}</option>
+function ReviewForm(props) {
+  return (
+    <Layout>
+      <form method="POST" action="/add/review" encType="multipart/form-data">
+        <FoodDropdown foods={props.foods} />
+        <RequiredInput label="Name" type="text" name="name" />
+        <RequiredInput label="Review" type="text" name="message" />
+        <RequiredInput label="Image" type="file" name="image" />
+        <input type="radio" name="score" value="1" /> 1
+        <input type="radio" name="score" value="2" /> 2
+        <input type="radio" name="score" value="3" /> 3
+        <input type="radio" name="score" value="4" /> 4
+        <input type="radio" name="score" value="5" /> 5
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </Layout>
   );
 }
 
-class ReviewForm extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <form method="POST" action="/add/review" encType="multipart/form-data">
-          <FoodDropdown foods={this.props.foods} />
-          <RequiredInput label="Name" type="text" name="name" />
-          <RequiredInput label="Review" type="text" name="message" />
-          <RequiredInput label="Image" type="file" name="image" />
-          <input type="radio" name="score" value="1" /> 1
-          <input type="radio" name="score" value="2" /> 2
-          <input type="radio" name="score" value="3" /> 3
-          <input type="radio" name="score" value="4" /> 4
-          <input type="radio" name="score" value="5" /> 5
-          <br />
-          <input type="submit" value="Submit" />
-        </form>     
-      </Layout>   
-    );
-  }
-};
- 
 module.exports = ReviewForm;
