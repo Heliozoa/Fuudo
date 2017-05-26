@@ -1,10 +1,10 @@
 const React = require('react');
 
-function RequiredInput(props) {
+function RequiredInput({ label, type, name }) {
   return (
     <label>
-      {props.label}: <br />
-      <input type={props.type} name={props.name} required /> <br />
+      {label}: <br />
+      <input type={type} name={name} required /> <br />
       <br />
     </label>
   );

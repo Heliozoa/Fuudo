@@ -10,23 +10,23 @@ function list(restaurants) {
   );
 }
 
-function RestaurantDropdown(props) {
+function RestaurantDropdown({ restaurants }) {
   return (
     <label>
       Restaurant: <br />
       <select name="restaurant">
-        {list(props.restaurants)}
+        {list(restaurants)}
       </select> <br />
       <br />
     </label>
   );
 }
 
-function FoodForm(props) {
+function FoodForm({ restaurants }) {
   return (
     <Layout>
       <form method="POST" action="/add/food" encType="multipart/form-data">
-        <RestaurantDropdown restaurants={props.restaurants} />
+        <RestaurantDropdown restaurants={restaurants} />
         <RequiredInput label="Name" type="text" name="name" />
         <RequiredInput label="Image" type="file" name="image" />
         <br />

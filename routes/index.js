@@ -5,10 +5,15 @@ const router = express.Router();
 
 router.get('/', function (req, res, next) {
   Food.getOne((err, food) => {
-    res.render('index', {
-      food,
-      restaurant: food.restaurant,
-      reviews: food.reviews });
+    if(!food) {
+      res.render('noFood');
+    } else {
+      res.render('index', {
+        food,
+        restaurant: food.restaurant,
+        reviews: food.reviews
+      });
+    }
   });
 });
 

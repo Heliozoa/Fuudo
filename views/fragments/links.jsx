@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Links(props) {
+function Links() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>

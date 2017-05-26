@@ -4,11 +4,11 @@ import constants from './constants';
 
 const appW = constants.appW;
 
-function Layout(props) {
+function Layout({ children }) {
   return (
     <div style={{ width: appW }}>
       <Links />
-      {props.children}
+      {children}
     </div>
   );
 }

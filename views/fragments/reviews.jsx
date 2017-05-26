@@ -1,10 +1,10 @@
 import React from 'react';
 import Review from './review';
 
-function Reviews(props) {
+function Reviews({ reviews }) {
   return (
     <div>
-      {list(props.reviews)}
+      {list(reviews)}
     </div>
   );
 }

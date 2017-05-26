@@ -6,19 +6,19 @@ const centerContents = styles.centerContents;
 const restrictSize = styles.restrictSize;
 const merge = Object.assign;
 
-function FoodPicture(props) {
+function FoodPicture({ food }) {
   return (
     <div style={merge({}, centerContents, { backgroundColor: '#a22d2d', height: 256 })}>
-      <img style={restrictSize} src={'data:image/png;base64,' + props.food.image} alt={props.food.name} />
+      <img style={restrictSize} src={'data:image/png;base64,' + food.image} alt={food.name} />
     </div>
   );
 }
 
-function Food(props) {
+function Food({ food }) {
   return (
     <div style={centerContents}>
-      <FoodPicture food={props.food} />
-      {props.food.name + ' ' + Reviews.score(props.food.reviews)}
+      <FoodPicture food={food} />
+      {food.name + ' ' + Reviews.score(food.reviews)}
     </div>
   );
 }

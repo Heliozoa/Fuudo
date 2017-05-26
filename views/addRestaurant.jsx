@@ -4,7 +4,7 @@ const Layout = require('./fragments/layout');
 
 const RequiredInput = require('./fragments/forms');
 
-function RestaurantForm(props) {
+function RestaurantForm() {
   return (
     <Layout>
       <form method="POST" action="/add/restaurant" encType="multipart/form-data">

@@ -1,10 +1,10 @@
 const React = require('react');
 
-function ErrorMessage(props) {
+function ErrorMessage({ error }) {
   return (
     <div>
-      {props.error.name} <br />
-      {props.error.message} <br />
+      {error.name} <br />
+      {error.message} <br />
     </div>
   );
 }

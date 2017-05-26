@@ -13,19 +13,24 @@ mockgoose.prepareStorage().then(function() {
 const Food = require('../models/food');
 const Restaurant = require('../models/restaurant');
 
+function validFood() {
+  const r = new Restaurant({
+    name: 'name',
+    image: 'image',
+  });
+  r.save();
+  return new Food({
+    name: 'name',
+    restaurant: r._id,
+    image: 'image',
+  });
+}
+
 test('Adding a food with the necessary fields works.', t => {
   t.plan(1);
-  const r = new Restaurant({
-            name: 'name',
-            image: 'image'});
-  r.save();
-  const f = new Food({
-            name: 'name',
-            restaurant: r._id,
-            image: 'image'});
-  const promise = f.save();
+  const f = validFood();
   
-  return promise.then(
+  return f.save().then(
     () => { t.pass(); },
     () => { t.fail(); },
   );
@@ -33,16 +38,10 @@ test('Adding a food with the necessary fields works.', t => {
 
 test('Adding a food with the name field missing doesn\'t work.', t => {
   t.plan(1);
-  const r = new Restaurant({
-            name: 'name',
-            image: 'image'});
-  r.save();
-  const f = new Food({
-            restaurant: r._id,
-            image: 'image'});
-  const promise = f.save();
-  
-  return promise.then(
+  const f = validFood();
+  f.name = undefined;
+
+  return f.save().then(
     () => { t.fail(); },
     () => { t.pass(); },
   );
@@ -50,12 +49,10 @@ test('Adding a food with the name field missing doesn\'t work.', t => {
 
 test('Adding a food with the restaurant field missing doesn\'t work.', t => {
   t.plan(1);
-  const f = new Food({
-            name: 'name',
-            image: 'image'});
-  const promise = f.save();
+  const f = validFood();
+  f.restaurant = undefined;
   
-  return promise.then(
+  return f.save().then(
     () => { t.fail(); },
     () => { t.pass(); },
   );
@@ -63,16 +60,10 @@ test('Adding a food with the restaurant field missing doesn\'t work.', t => {
 
 test('Adding a food with the image field missing doesn\'t work.', t => {
   t.plan(1);
-  const r = new Restaurant({
-            name: 'name',
-            image: 'image'});
-  r.save();
-  const f = new Food({
-            name: 'name',
-            restaurant: r._id });
-  const promise = f.save();
+  const f = validFood();
+  f.image = undefined;
   
-  return promise.then(
+  return f.save().then(
     () => { t.fail(); },
     () => { t.pass(); },
   );

@@ -1,6 +1,6 @@
 const React = require('react');
 
-function Selector(props) {
+function Selector() {
   return (
     <div style={{ textAlign: 'center' }}>
       <a href="/" style={{ position: 'relative', right: '5%' }}>pass</a>

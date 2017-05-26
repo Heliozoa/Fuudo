@@ -5,10 +5,10 @@ const centerContents = styles.centerContents;
 const restrictSize = styles.restrictSize;
 const merge = Object.assign;
 
-function Restaurant(props) {
+function Restaurant({ restaurant }) {
   return (
     <div style={merge({}, { height: 128 }, centerContents)}>
-      <img style={restrictSize} src={'data:image/png;base64,' + props.restaurant.image} alt={props.restaurant.name} />
+      <img style={restrictSize} src={'data:image/png;base64,' + restaurant.image} alt={restaurant.name} />
     </div>
   );
 }

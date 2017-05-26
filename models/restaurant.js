@@ -3,11 +3,11 @@ mongoose.Promise = require('bluebird');
 
 const Schema = mongoose.Schema;
 
-const restaurantSchema = mongoose.Schema({
+const restaurantSchema = Schema({
   name: {
     type: String,
-    required: true,
     minlength: 2,
+    required: true,
   },
   image: {
     type: Buffer,

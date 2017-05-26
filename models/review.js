@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const reviewSchema = mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const reviewSchema = Schema({
   name: {
     type: String,
-    required: true,
     minlength: 2,
+    required: true,
   },
   message: {
     type: String,
-    required: true,
     minlength: 4,
+    required: true,
   },
   image: {
     type: Buffer,
