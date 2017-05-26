@@ -58,7 +58,6 @@ test('other paths return OK', async t => {
 
   const res3 = await request(app)
     .get('/add/review');
-
   t.is(res3.status, 200);
 });
 

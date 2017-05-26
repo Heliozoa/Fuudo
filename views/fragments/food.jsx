@@ -15,10 +15,12 @@ function FoodPicture({ food }) {
 }
 
 function Food({ food }) {
+  let score = Reviews.score(food.reviews);
+  if(isNaN(score)) score = '--';
   return (
     <div style={centerContents}>
       <FoodPicture food={food} />
-      {food.name + ' ' + Reviews.score(food.reviews)}
+      {food.name + ' ' + score}
     </div>
   );
 }

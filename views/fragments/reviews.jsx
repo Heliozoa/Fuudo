@@ -10,12 +10,18 @@ function Reviews({ reviews }) {
 }
 
 function list(reviews) {
+  if(reviews.length == 0){
+    return <div>No reviews yet!</div>
+  }
   return reviews.map((review) =>
     <Review key={review._id} review={review} />
   );
 }
 
 function score(reviews) {
+  if(reviews.length == 0){
+    return NaN;
+  }
   let sum = 0;
   for (let i = 0; i < reviews.length; i += 1) {
     sum += reviews[i].score;
